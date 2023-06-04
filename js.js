@@ -33,6 +33,12 @@ boton1.addEventListener("click", function () {  //genero evento para que inicie 
     fechas.push(fecha4.value);
     console.log(`${fecha4.value}`);
 
+    //UTILIZANDO sessionStorage.getItem para guardar datos
+      //.......................................................
+      let lista = sessionStorage.getItem('fechas').split(",");  
+      console.log(typeof lista);
+     //......................................................
+
     const fechass = document.getElementById("fechass");
     fechass.innerHTML =
       `<p>${fecha0.value}</p>
