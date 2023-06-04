@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>3er pre entrega</title>
 </head>
 
 <body>
-    <ol>
-        <li>TURNERO PARA FECHAS DE INSTALACIONES DE AIRES ACONDICIONADOS</li>
-        <li>CODIGO PREGUNTA SI QUIERE INGRESAR COMO ADMINISTRADOR O CLIENTE</li>
-        <li>MODO ADMINISTRADOR PERMITE INGRESAR 6 FECHAS </li>
-        <li>MODO CLIENTE SOLICITA INGRESAR 5 DATOS DE 3 CLIENTES </li>
-        
-        
-    </ol>
+   
+    
+     <h3>SALUDOS!! PRECIONE ADMINISTRDOR O CLIENTE PARA INICIAR</h3>
+
+    <button id="administrador">ADMINISTRADOR</button>
+
+    <form>
+        <br>
+        <p> Ingrese Fecha Disponible:</p> 
+       <input  id="valor0" type="datetime-local" name="fecha disponibles0"> <br>
+       <input  id="valor1" type="datetime-local" name="fecha disponibles1"> <br>
+       <input  id="valor2" type="datetime-local" name="fecha disponibles2"> <br>
+       <input  id="valor3" type="datetime-local" name="fecha disponibles3"> <br>
+       <input  id="valor4" type="datetime-local" name="fecha disponibles4"> <br>
+     
+       <button id="valorboton1">enviar</button>
+       <br>
+
+       <div id="fechass"></div>
+    </form>
+
+    
+
+    <br>
+    <br>
+    
+    <button id="cliente">CLIENTE</button>
+    <br>
+
+    <form>
+        <br>
+        <p> Ingrese Datos Personales:</p> 
+       <label for="nombre">Nombre:</label>
+       <input  id="nombre" type="text" name="Nombre"> <br>
+       
+       <label for="direccion">Direccion:</label>
+       <input  id="direccion" type="text" name="Direccion"> <br>
+       
+       <label for="numerodetelefono">Numero de Telefono:</label>
+       <input  id="numerodetelefono" type="text" name="NumeroDeTelefono"> <br>
+       
+       <label for="marcaytamaño">Marca y Tamaño:</label>
+       <input  id="marcaytamaño" type="text" name="MorcoyTamaño"> <br>
+      
+       <label for="fechadisponible">Fechas Disponibles:</label>
+       <input  id="fechadisponible" type="text" name="FechaDisponible"> <br>
+     
+       <button id="valorboton2">enviar</button>
+       <br>
+
+       <div id="DatosP"></div>
+    </form>
+
+  
+    
     <script src="js.js"></script>
 </body>
 
