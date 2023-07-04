@@ -6,7 +6,7 @@
 
 //INTERACTUAMOS ENTRE HTML, JAVASCRIPT Y CCS GENERANDO EVENTOS UTILIZANDO INPUT, BOTONES, GETELEMENT, PREVENTDEFAULT,
 //ARREGLOS, INNERHTML Y GUARDANDO DATOS EN NAVEGADOR CON LOCALSTORAGE Y  JSON.
-
+//OPERADOR LOGICO AND, DESESTRUCTURACION DE ARRAY.
 
 // INICIO COMO ANDMINISTRADOR
 
@@ -128,14 +128,14 @@ boton2.addEventListener("click", function Fm(event) {  //genero evento para que 
       //....................................................   
      
       // Se guarda en localStorage despues de JSON stringificarlo 
-      //localStorage.setItem('myArray', JSON.stringify(ListaPersona));
+      localStorage.setItem('myArray', JSON.stringify(ListaPersona));
 
       // Obtener el arreglo de localStorage
 
-      //var array = localStorage.getItem('myArray');
+      var array = localStorage.getItem('myArray');
 
       // Se parsea para poder ser usado en js con JSON.parse :)
-      //ListaPersona = JSON.parse(ListaPersona);
+      ListaPersona = JSON.parse(ListaPersona);
      
      
       //.....................................................
