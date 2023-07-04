@@ -1,7 +1,3 @@
-
-
-
-
 // ESTE CODIGO REPRESENTA UN TURNERO PARA EMPRESA DE INSTALACION DE AIRES ACONDICIONADOS
 // PERMITE INGRESAR DE 2 FORMAS, 
 // MODO ADMINISTRADOR_ NOS DEJA CARGAR FECHAS CON HORARIO LOCAL Y  GUARDARLOS
@@ -91,45 +87,64 @@ boton2.addEventListener("click", function Fm(event) {  //genero evento para que 
     console.log(`${NumerodeTelefono.value}`);
     ListaPersona.push(MarcayTamaño.value);
     console.log(`${MarcayTamaño.value}`);
+   
     const FechaDisponible = document.getElementById("fechadisponible"); // llamo a fechadisponible
     const ValorBoton3 = document.getElementById("valorboton3");  // llamo a valorboton3
     ValorBoton3.addEventListener("click", function (event) {  //genero un evento con la accion del boton3
       event.preventDefault(event); // Evito que se recargue la pagina al precionar el boton id: valorboton3
-      ListaPersona.push(FechaDisponible.value);
-      console.log(`${FechaDisponible.value}`);
+   
+        //utilizo OPERADOR LOGICO AND para simplificar un if
+        {`${FechaDisponible.value}`== 0 &&
+        console.log("la fecha no existe");
+        const FechanoExiste = document.getElementById("fechanoexiste"); 
+        FechanoExiste.innerHTML = `<p>La fecha no existe, favor de introducir una fecha disponible<p>`;
+        }
+          
+            ListaPersona.push(FechaDisponible.value);
+            console.log(`${FechaDisponible.value}`);
 
 
-      console.log(ListaPersona.join("\n"));
+            console.log(ListaPersona.join("\n"));
 
 
 
-      const DatosP = document.getElementById("DatosP");
-      DatosP.innerHTML =
-        `<p>${Nombre.value}</p>
-         <p>${Direccion.value}</p>
-         <p>${NumerodeTelefono.value}</p>
-         <p>${MarcayTamaño.value}</p>
-         <p>${FechaDisponible.value}</p>`;
+            const DatosP = document.getElementById("DatosP");
+            DatosP.innerHTML =
+            `<p>${Nombre.value}</p>
+            <p>${Direccion.value}</p>
+            <p>${NumerodeTelefono.value}</p>
+            <p>${MarcayTamaño.value}</p>
+            <p>${FechaDisponible.value}</p>`;
 
+            //aplico desestructuracion de array para demostrar en consola que tambien se puede de esta forma
+            const LISTAPERSONA = [Nombre.value,Direccion.value,NumerodeTelefono.value,MarcayTamaño.value,FechaDisponible.value];
+            const [a,b,c,d,e] = LISTAPERSONA;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(d);
+            console.log(e);
+            
       //....................................................   
      
       // Se guarda en localStorage despues de JSON stringificarlo 
-      localStorage.setItem('myArray', JSON.stringify(ListaPersona));
+      //localStorage.setItem('myArray', JSON.stringify(ListaPersona));
 
       // Obtener el arreglo de localStorage
 
-      var array = localStorage.getItem('myArray');
+      //var array = localStorage.getItem('myArray');
 
       // Se parsea para poder ser usado en js con JSON.parse :)
-      ListaPersona = JSON.parse(ListaPersona);
+      //ListaPersona = JSON.parse(ListaPersona);
      
      
       //.....................................................
-      const Agradece = document.getElementById("agradece");
-      Agradece.innerHTML =
-        `<p>Gracias por confiar en nuestro sistema. Nos estaremos comunicando a la brevedad </p>`;
+            const Agradece = document.getElementById("agradece");
+            Agradece.innerHTML =
+            `<p>Gracias por confiar en nuestro sistema. Nos estaremos comunicando a la brevedad </p>`;
 
 
     });
   });
 });
+
