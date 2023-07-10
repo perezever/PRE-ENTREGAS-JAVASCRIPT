@@ -6,15 +6,36 @@
 
 //INTERACTUAMOS ENTRE HTML, JAVASCRIPT Y CCS GENERANDO EVENTOS UTILIZANDO INPUT, BOTONES, GETELEMENT, PREVENTDEFAULT,
 //ARREGLOS, INNERHTML Y GUARDANDO DATOS EN NAVEGADOR CON LOCALSTORAGE Y  JSON.
-//OPERADOR LOGICO AND, DESESTRUCTURACION DE ARRAY.
+// LIBRERIAS,OPERADOR LOGICO AND 
+
 
 // INICIO COMO ANDMINISTRADOR
 
 const boton1 = document.getElementById("administrador"); //igualo el boton administrador a boton1
 boton1.addEventListener("click", function F(event) {  //genero evento para que inicie funcion al hacer click en boton administrador
   console.log("Haz hecho clic en el botón ADMINISTRADOR!");
-
   event.preventDefault(event);  //Evito que se recargue la pagina al precionar el boton id: administrador
+
+
+  const ingresafechas = document.getElementById("ingresafechas");
+  ingresafechas.innerHTML =
+    ` <form>
+    <br>
+    <p> Ingrese Fecha Disponible:</p> 
+   <input  id="valor0" type="datetime-local" name="fecha disponibles0"> <br>
+   <input  id="valor1" type="datetime-local" name="fecha disponibles1"> <br>
+   <input  id="valor2" type="datetime-local" name="fecha disponibles2"> <br>
+   <input  id="valor3" type="datetime-local" name="fecha disponibles3"> <br>
+   <input  id="valor4" type="datetime-local" name="fecha disponibles4"> <br>
+ 
+   <button id="valorboton1">enviar</button>
+   <br>
+
+ 
+</form>`;
+
+
+
 
   const fechas = []; //  arreglo de fechas 
 
@@ -65,6 +86,27 @@ boton2.addEventListener("click", function Fm(event) {  //genero evento para que 
   console.log("Haz hecho clic en el botón cliente!");
   event.preventDefault(event); // Evito que se recargue la pagina al precionar el boton id: cliente
 
+  const datospersonales = document.getElementById("datospersonales");
+  datospersonales.innerHTML =
+  `<form>
+    <br>
+    <p> Ingrese Datos Personales:</p> 
+   <label for="nombre">Nombre:</label>
+   <input  id="nombre" type="text" name="Nombre"> <br>
+   
+   <label for="direccion">Direccion:</label>
+   <input  id="direccion" type="text" name="Direccion"> <br>
+   
+   <label for="numerodetelefono">Numero de Telefono:</label>
+   <input  id="numerodetelefono" type="text" name="NumeroDeTelefono"> <br>
+   
+   <label for="marcaytamaño">Marca y Tamaño:</label>
+   <input  id="marcaytamaño" type="text" name="MorcoyTamaño"> <br>
+ 
+   <button id="valorboton2">enviar</button>
+   <br>
+  </form>`;
+
   const ListaPersona = []; //arreglo que contiene datos personales
 
 
@@ -87,6 +129,17 @@ boton2.addEventListener("click", function Fm(event) {  //genero evento para que 
     console.log(`${NumerodeTelefono.value}`);
     ListaPersona.push(MarcayTamaño.value);
     console.log(`${MarcayTamaño.value}`);
+
+    const introducfechas = document.getElementById("introducfechas");
+    introducfechas.innerHTML =
+    ` <br>
+    <h3>FECHAS DISPONIBLES</h3>
+    <br>
+    <div id="fechass"></div>
+    <br>
+    <label for="fechadisponible">Ingrese una Fecha:</label>
+    <input  id="fechadisponible" type="text" name="Fechas Disponibles "> <br>
+    <button id="valorboton3">enviar</button>`;
    
     const FechaDisponible = document.getElementById("fechadisponible"); // llamo a fechadisponible
     const ValorBoton3 = document.getElementById("valorboton3");  // llamo a valorboton3
@@ -108,43 +161,42 @@ boton2.addEventListener("click", function Fm(event) {  //genero evento para que 
 
 
 
-            const DatosP = document.getElementById("DatosP");
-            DatosP.innerHTML =
+            const DatosPersona = document.getElementById("DatosPersona");
+            DatosPersona.innerHTML =
             `<p>${Nombre.value}</p>
             <p>${Direccion.value}</p>
             <p>${NumerodeTelefono.value}</p>
             <p>${MarcayTamaño.value}</p>
             <p>${FechaDisponible.value}</p>`;
-
-            //aplico desestructuracion de array para demostrar en consola que tambien se puede de esta forma
-            const LISTAPERSONA = [Nombre.value,Direccion.value,NumerodeTelefono.value,MarcayTamaño.value,FechaDisponible.value];
-            const [a,b,c,d,e] = LISTAPERSONA;
-            console.log(a);
-            console.log(b);
-            console.log(c);
-            console.log(d);
-            console.log(e);
             
       //....................................................   
      
       // Se guarda en localStorage despues de JSON stringificarlo 
-      localStorage.setItem('myArray', JSON.stringify(ListaPersona));
+     // localStorage.setItem('myArray', JSON.stringify(ListaPersona));
 
       // Obtener el arreglo de localStorage
 
-      var array = localStorage.getItem('myArray');
+      //var array = localStorage.getItem('myArray');
 
       // Se parsea para poder ser usado en js con JSON.parse :)
-      ListaPersona = JSON.parse(ListaPersona);
+      //ListaPersona = JSON.parse(ListaPersona);
      
      
       //.....................................................
-            const Agradece = document.getElementById("agradece");
-            Agradece.innerHTML =
-            `<p>Gracias por confiar en nuestro sistema. Nos estaremos comunicando a la brevedad </p>`;
-
+            
+         // Utilizo libreria con Sweet Alert   
+            Swal.fire({
+              title: 'AIRES DEL CENTRO',
+              text: 'Agradece por confiar en su servicios. Se comunicaran a la brevedad',
+              imageUrl: 'https://i.blogs.es/c81a01/vishing/1366_2000.jpg',
+              imageWidth: 400,
+              imageHeight: 200,
+              imageAlt: 'Custom image',
+            })
 
     });
   });
+
+  
 });
 
